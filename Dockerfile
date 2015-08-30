@@ -1,6 +1,6 @@
 # ---- Version control ----
 
-FROM docker-registry.life.atigeo.com:5000/java7
+FROM xpatterns/java7
 
 ENV KAFKA_VERSION kafka_2.10-0.8.2.1
 ENV KAFKA_DOWNLOAD http://apache.osuosl.org/kafka/0.8.2.1/kafka_2.10-0.8.2.1.tgz
