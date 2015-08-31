@@ -1,4 +1,4 @@
-xPatterns Kafka Docker
+xPatterns Zookeeper Docker
 =============
 
 Summary

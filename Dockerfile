@@ -14,8 +14,6 @@ EXPOSE 2180
 COPY conf/cloudera.list /etc/apt/sources.list.d/cloudera.list
 #Set preference for cloudera packages
 COPY conf/cloudera.pref /etc/apt/preferences.d/cloudera.pref
-#Add repository for python installation
-COPY conf/python.list /etc/apt/sources.list.d/python.list
 
 # ---- Add a Repository Key ----
 RUN wget http://archive.cloudera.com/cdh5/ubuntu/trusty/amd64/cdh/archive.key -O archive.key && sudo apt-key add archive.key && \
