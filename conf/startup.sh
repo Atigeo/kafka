@@ -28,7 +28,7 @@ echo "zookeeper.connection.timeout.ms=6000" >> /usr/local/$KAFKA_VERSION/config/
 
 # Build producer.properties
 rm -Rf /usr/local/$KAFKA_VERSION/config/producer.properties
-echo "metadata.broker.list=localhost:9092" >> /usr/local/$KAFKA_VERSION/config/producer.properties
+echo "metadata.broker.list=${METADATA_BROKER_INTERFACE}:${METADATA_BROKER_PORT}" >> /usr/local/$KAFKA_VERSION/config/producer.properties
 echo "producer.type=sync" >> /usr/local/$KAFKA_VERSION/config/producer.properties
 echo "compression.codec=none" >> /usr/local/$KAFKA_VERSION/config/producer.properties
 echo "serializer.class=kafka.serializer.DefaultEncoder" >> /usr/local/$KAFKA_VERSION/config/producer.properties
@@ -36,11 +36,11 @@ echo "serializer.class=kafka.serializer.DefaultEncoder" >> /usr/local/$KAFKA_VER
 # Wait for zookeeper
 while ! exec 6<>/dev/tcp/${ZOOKEEPERHOSTS}/${ZOOKEEPER_PORT}; do
    echo "$(date) - still waiting for zookeeper at ${ZOOKEEPERHOSTS}"
-    sleep 1
+    sleep 5
 done
 
 # Start KAFKA
-cd /usr/local/$KAFKA_VERSION/ && bin/kafka-server-start.sh config/server.properties &
+sudo -u kafka cd /usr/local/$KAFKA_VERSION/ && bin/kafka-server-start.sh config/server.properties &
 
 # Infinite loop
 while true; do 
