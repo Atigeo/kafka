@@ -40,7 +40,7 @@ while ! exec 6<>/dev/tcp/${ZOOKEEPERHOSTS}/${ZOOKEEPER_PORT}; do
 done
 
 # Start KAFKA
-sudo -u kafka cd /usr/local/$KAFKA_VERSION/ && bin/kafka-server-start.sh config/server.properties &
+sudo -u kafka /usr/local/$KAFKA_VERSION/bin/kafka-server-start.sh /usr/local/$KAFKA_VERSION/config/server.properties &
 
 # Infinite loop
 while true; do 

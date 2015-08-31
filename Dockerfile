@@ -33,7 +33,7 @@ RUN useradd kafka -U
 RUN echo kafka:kafka | chpasswd
 RUN mkdir /home/kafka
 RUN chown kafka:kafka /home/kafka
-RUN chown /usr/local/${KAFKA_VERSION}
+RUN chown kafka:kafka /usr/local/${KAFKA_VERSION}
 
 # ---- Clear tmp dir ----
 
