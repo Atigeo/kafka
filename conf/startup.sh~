@@ -1,0 +1,7 @@
+#!/bin/bash
+# This is the base process of the container.
+
+# Infinite loop
+while true; do 
+	sleep 10
+done
