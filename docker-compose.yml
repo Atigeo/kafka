@@ -1,0 +1,21 @@
+dns:
+    image: phensley/docker-dns
+    container_name: dns
+    volumes:
+        - /var/run/docker.sock:/docker.sock
+    ports:
+        - 172.17.42.1:53:53/udp
+
+xpatternszookeeper:
+  image: xpatterns/zookeeper
+  hostname: xpatterns-zookeeper
+  container_name: xpatterns-zookeeper
+  dns: 172.17.42.1
+
+xpatternskafka:
+  image: xpatterns/kafka
+  hostname: xpatterns-kafka
+  container_name: xpatterns-kafka
+  dns: 172.17.42.1
+  environment:
+    - ZOOKEEPERHOSTS=xpatterns-zookeeper
