@@ -1,4 +1,4 @@
-xPatterns Kafka Docker
+xPatterns Zookeeper Docker
 =============
 
 Summary
@@ -28,4 +28,3 @@ How to use your project.
 
 Notes
 -------
-You can learn more about git markup here. (https://github.com/github/markup/blob/master/README.md)
