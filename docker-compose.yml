@@ -19,3 +19,5 @@ xpatternskafka:
   dns: 172.17.42.1
   environment:
     - ZOOKEEPERHOSTS=xpatterns-zookeeper
+  ports:
+    - "9092:9092"
